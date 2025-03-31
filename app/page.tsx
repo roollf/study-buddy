@@ -1,15 +1,14 @@
-import Image from "next/image";
+// import components
+import Card from "./_components/card/card";
+import Table from "./_components/table/table";
+import Chart from "./_components/chart/chart";
 
 export default function Home() {
   return (
-    <main className="text-center pt-32 px-5">
-      <h1 className="text-4xl md:text-5xl font-bold mb-5">Hello</h1>
-      <p className="max-w-[750px] mx-auto leading-8">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi
-        molestias praesentium in quis deserunt obcaecati! Culpa voluptate eos
-        aliquid omnis, ad alias tempore aspernatur sint? Beatae ad voluptatibus
-        quod animi.
-      </p>
+    <main className="flex flex-col md:flex-row items-center justify-center h-full gap-10 md:gap-20 mx-auto my-auto">
+      <Card />
+      {/* <Table /> */}
+      <Chart />
     </main>
   );
 }
