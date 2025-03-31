@@ -3,13 +3,22 @@
 // import components
 import { ArrowUpFromDot as Arrow } from "lucide-react";
 
+// import context
+import { useTimer } from "@/app/_context/timerContext";
+
 export default function Studying({
   data,
 }: {
   data: { disciplina: string; tema: string };
 }) {
+  const { isActive } = useTimer();
+
   return (
-    <div className="flex items-center justify-between max-w-[300px] gap-2 p-1 border-1 border-fuchsia-300 rounded-lg bg-zinc-50 shadow-sm">
+    <div
+      className={`flex items-center justify-between max-w-[300px] gap-2 p-1 ${
+        isActive ? "border-1 border-fuchsia-300" : "border-1 border-zinc-200"
+      } rounded-lg bg-zinc-50 shadow-sm transition-all duration-300 ease-in-out overflow-hidden`}
+    >
       <span className="text-[11px] text-center font-semibold text-zinc-500">
         {data.disciplina}
       </span>
