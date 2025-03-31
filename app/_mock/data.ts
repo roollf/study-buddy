@@ -16,10 +16,6 @@ const data = [
     tema: "Contrato de Trabalho",
   },
   {
-    disciplina: "Direito Tributário",
-    tema: "Imunidade Tributária",
-  },
-  {
     disciplina: "Direito Ambiental",
     tema: "Princípio do Desenvolvimento Sustentável",
   },
