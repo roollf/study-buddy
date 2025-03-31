@@ -4,6 +4,7 @@
 import { Label, Pie, PieChart } from "recharts";
 import * as CardComponent from "@/components/ui/card";
 import * as ChartComponent from "@/components/ui/chart";
+import { ChartPie } from "lucide-react";
 
 // import context
 import { useTimer } from "@/app/_context/timerContext";
@@ -68,80 +69,89 @@ export default function Chart() {
         </CardComponent.CardDescription>
       </CardComponent.CardHeader>
       <CardComponent.CardContent>
-        <ChartComponent.ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[350px]"
-        >
-          <PieChart>
-            <ChartComponent.ChartTooltip
-              cursor={false}
-              content={({ payload }) => {
-                if (payload && payload.length > 0) {
-                  const data = payload[0].payload;
-                  return (
-                    <div className="flex items-center gap-2 rounded-lg bg-background p-2 shadow-md border">
-                      <div
-                        className="w-3 h-3 rounded-sm"
-                        style={{ backgroundColor: data.fill }}
-                      />
-                      <p className="flex items-center gap-2">
-                        <span className="text-zinc-800 font-semibold">
-                          {data.name}
-                        </span>
-                        <span className="text-zinc-500 font-semibold">
-                          {formatTime(data.value)}
-                        </span>
-                      </p>
-                    </div>
-                  );
-                }
-                return null;
-              }}
-            />
-            <Pie
-              data={data}
-              dataKey="value"
-              nameKey="name"
-              innerRadius={isMobile ? 30 : 80}
-              outerRadius={isMobile ? 60 : 160}
-              strokeWidth={isMobile ? 3 : 5}
-            >
-              <Label
-                content={({ viewBox }) => {
-                  if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+        {selectedDataList.length === 0 ? (
+          <div className="flex flex-col items-center justify-center gap-2">
+            <p className="text-zinc-800 font-bold text-1xl text-center">
+              Você ainda não possui estatísticas
+            </p>
+            <ChartPie className="size-[30px] text-zinc-300 hover:text-zinc-600 transition duration-300" />
+          </div>
+        ) : (
+          <ChartComponent.ChartContainer
+            config={chartConfig}
+            className="mx-auto aspect-square max-h-[350px]"
+          >
+            <PieChart>
+              <ChartComponent.ChartTooltip
+                cursor={false}
+                content={({ payload }) => {
+                  if (payload && payload.length > 0) {
+                    const data = payload[0].payload;
                     return (
-                      <text
-                        x={viewBox.cx}
-                        y={viewBox.cy}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                      >
-                        <tspan
-                          x={viewBox.cx}
-                          y={viewBox.cy}
-                          className="fill-foreground text-[12px] md:text-[24px] font-bold"
-                        >
-                          {formatTime(
-                            data.reduce((acc, item) => acc + item.value, 0)
-                          )}
-                        </tspan>
-                        {!isMobile && (
-                          <tspan
-                            x={viewBox.cx}
-                            y={(viewBox.cy || 0) + (isMobile ? 15 : 20)}
-                            className="fill-muted-foreground"
-                          >
-                            Tempo total de estudo
-                          </tspan>
-                        )}
-                      </text>
+                      <div className="flex items-center gap-2 rounded-lg bg-background p-2 shadow-md border">
+                        <div
+                          className="w-3 h-3 rounded-sm"
+                          style={{ backgroundColor: data.fill }}
+                        />
+                        <p className="flex items-center gap-2">
+                          <span className="text-zinc-800 font-semibold">
+                            {data.name}
+                          </span>
+                          <span className="text-zinc-500 font-semibold">
+                            {formatTime(data.value)}
+                          </span>
+                        </p>
+                      </div>
                     );
                   }
+                  return null;
                 }}
               />
-            </Pie>
-          </PieChart>
-        </ChartComponent.ChartContainer>
+              <Pie
+                data={data}
+                dataKey="value"
+                nameKey="name"
+                innerRadius={isMobile ? 30 : 80}
+                outerRadius={isMobile ? 60 : 160}
+                strokeWidth={isMobile ? 3 : 5}
+              >
+                <Label
+                  content={({ viewBox }) => {
+                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                      return (
+                        <text
+                          x={viewBox.cx}
+                          y={viewBox.cy}
+                          textAnchor="middle"
+                          dominantBaseline="middle"
+                        >
+                          <tspan
+                            x={viewBox.cx}
+                            y={viewBox.cy}
+                            className="fill-foreground text-[12px] md:text-[24px] font-bold"
+                          >
+                            {formatTime(
+                              data.reduce((acc, item) => acc + item.value, 0)
+                            )}
+                          </tspan>
+                          {!isMobile && (
+                            <tspan
+                              x={viewBox.cx}
+                              y={(viewBox.cy || 0) + (isMobile ? 15 : 20)}
+                              className="fill-muted-foreground"
+                            >
+                              Tempo total de estudo
+                            </tspan>
+                          )}
+                        </text>
+                      );
+                    }
+                  }}
+                />
+              </Pie>
+            </PieChart>
+          </ChartComponent.ChartContainer>
+        )}
       </CardComponent.CardContent>
       <CardComponent.CardFooter className="flex flex-col gap-2 text-sm">
         <div className="flex flex-col items-center gap-2 font-medium leading-none">
