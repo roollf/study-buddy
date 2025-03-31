@@ -173,12 +173,19 @@ export default function Chart() {
               Matéria menos estudada:
             </span>
             <span className="text-foreground text-[12px] md:text-[14px]">
-              {
-                aggregatedDataList.reduce(
-                  (min, item) => (item.duration < min.duration ? item : min),
-                  { disciplina: "Nenhuma", duration: Infinity }
-                ).disciplina
-              }
+              {data.length === 1 ? (
+                "Nenhuma"
+              ) : (
+                <>
+                  {
+                    aggregatedDataList.reduce(
+                      (min, item) =>
+                        item.duration < min.duration ? item : min,
+                      { disciplina: "Nenhuma", duration: Infinity }
+                    ).disciplina
+                  }
+                </>
+              )}
             </span>
           </div>
         </div>
