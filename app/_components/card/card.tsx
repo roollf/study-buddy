@@ -18,7 +18,7 @@ import { useTimer } from "@/app/_context/timerContext";
 import filterThemes from "@/app/_utils/filterThemes";
 
 export default function Card() {
-  const { handleStart, setSelectedData } = useTimer();
+  const { handleStart, setTimerDuration, setSelectedData } = useTimer();
 
   const [selectedSubject, setSelectedSubject] = useState<string>("");
   const [selectedTheme, setSelectedTheme] = useState<string>("");
@@ -31,6 +31,7 @@ export default function Card() {
       tema: selectedTheme,
     };
     setSelectedData(selectedData);
+    setTimerDuration(0);
     handleStart();
     setSelectedSubject("");
     setSelectedTheme("");
@@ -44,7 +45,9 @@ export default function Card() {
   return (
     <CardComponent.Card className="w-[200px] md:w-[350px]">
       <CardComponent.CardHeader>
-        <CardComponent.CardTitle className="md:text-start text-center">Definir estudo</CardComponent.CardTitle>
+        <CardComponent.CardTitle className="md:text-start text-center">
+          Definir estudo
+        </CardComponent.CardTitle>
         <CardComponent.CardDescription className="md:text-start text-center">
           Defina sua matéria e tema.
         </CardComponent.CardDescription>
