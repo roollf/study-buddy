@@ -65,3 +65,7 @@ A escolha pelo Tailwind CSS também foi uma decisão estratégica. Ele adota um 
 ### shadcn-ui
 
 Para agilizar o desenvolvimento e melhorar a experiência visual do usuário, optei pela biblioteca shadcn-ui. Ela segue o padrão de composição, permitindo controle granular na montagem de componentes para facilitar customização e reutilização. Além disso, seus componentes bem estruturados seguem padrões modernos, agilizando a implementação e mantendo o código organizado.
+
+### Recharts
+
+Para criar visualizações de dados de forma simples e eficiente, optei pela Recharts. A biblioteca facilitou a implementação de gráficos interativos com uma API declarativa e componentes reutilizáveis, tornando a personalização e adaptação às necessidades do projeto muito mais fáceis. Além disso, ela possui uma excelente integração com os componentes existentes na biblioteca shadcn-ui.
