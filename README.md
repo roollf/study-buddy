@@ -4,6 +4,10 @@ Este projeto foi desenvolvido utilizando Next.js, Tailwind CSS, Typescript e sha
 
 ## Dando Ínicio
 
+### Acesso ao deploy
+
+O acesso a aplicação pode ser feito através do link https://study-buddy-nu.vercel.app/. Caso tenha problemas, pode seguir os passos para executar no servidor de desenvolvimento.
+
 ### Pré-requisitos
 
 - Node.js (versão recomendada: LTS)
@@ -48,49 +52,16 @@ Outros componentes, hooks e utils estão organizados em diretórios privados.
 
 ### Next.js
 
-Optei pelo Next.js devido à experiência prévia e à praticidade que o framework oferece. Entre os principais pontos, destacam-se:
-
-- **Roteamento Simplificado:**
-Através da estrutura de diretórios, o Next.js facilita a criação e a navegação entre páginas, eliminando a necessidade de configurações complexas de roteamento.
-
-- **Componentes Client-Side e Server-Side:**
-O Next.js permite uma distinção clara entre componentes renderizados no lado do cliente e do servidor, otimizando a performance e a experiência do usuário.
-
-- **Layout Compartilhado:**
-A estrutura de Layout do Next.js possibilita a persistência de componentes globais, como o cronômetro, entre as páginas da aplicação.
+Optei pelo Next.js devido à experiência prévia e à praticidade que o framework oferece. Ele simplifica o roteamento por meio da estrutura de diretórios, eliminando configurações complexas, além de permitir a distinção entre componentes renderizados no cliente e no servidor para otimizar a performance. Além disso, sua estrutura de Layout possibilita a persistência de componentes globais entre páginas, melhorando a experiência do usuário.
 
 ### Typescript
 
-A escolha pelo Typescript foi motivada por razões semelhantes às que levaram à escolha do Next.js:
-
-- **Segurança e Confiabilidade:**
-Com tipagem estática, o Typescript ajuda a evitar erros comuns em tempo de execução, proporcionando um desenvolvimento mais seguro e robusto.
-
-- **Melhor Manutenção:**
-A utilização de tipos explícitos facilita a leitura e manutenção do código, o que é fundamental em projetos que podem evoluir ao longo do tempo.
-
-- **Suporte Avançado para IDEs:**
-A integração do Typescript com editores modernos oferece autocompletar, refatoração e detecção precoce de erros, aumentando a produtividade do desenvolvimento.
+A escolha pelo Typescript foi motivada por razões semelhantes às que levaram à escolha do Next.js. O TypeScript melhora a segurança e confiabilidade do código com tipagem estática, evitando erros em tempo de execução, além de facilitar a manutenção com tipos explícitos que tornam o código mais legível.
 
 ### Tailwind CSS
 
-A escolha pelo Tailwind CSS também foi uma decisão estratégica:
-
-- **Design Utility-First:**
-O Tailwind permite a criação de estilos de forma rápida e intuitiva, utilizando classes utilitárias que reduzem a necessidade de escrever CSS personalizado em excesso.
-
-- **Consistência Visual:**
-Ao padronizar a estilização com classes pré-definidas, é possível manter uma identidade visual consistente em toda a aplicação.
-
-- **Facilidade de Customização:**
-Apesar de ser uma biblioteca com classes utilitárias, o Tailwind oferece flexibilidade para personalizações avançadas quando necessário, possibilitando ajustes finos no design.
+A escolha pelo Tailwind CSS também foi uma decisão estratégica. Ele adota um design utility-first, permitindo estilização rápida com classes utilitárias que reduzem a escrita de CSS personalizado, garantindo consistência visual na aplicação. Além disso, oferece flexibilidade para personalizações avançadas, possibilitando ajustes precisos no design quando necessário.
 
 ### shadcn-ui
 
-Para agilizar o desenvolvimento e melhorar a experiência visual do usuário, optei pela biblioteca shadcn-ui. Seus pontos fortes incluem:
-
-- **Composition Pattern:**
-A abordagem de composição permite um controle granular sobre a montagem dos componentes, facilitando a customização e a reutilização de elementos na interface.
-
-- **Componentes Bem Estruturados:**
-Os componentes oferecidos pela shadcn-ui são desenvolvidos seguindo padrões modernos, o que agiliza a implementação de layouts e funcionalidades, mantendo o código organizado e coeso.
+Para agilizar o desenvolvimento e melhorar a experiência visual do usuário, optei pela biblioteca shadcn-ui. Ela segue o padrão de composição, permitindo controle granular na montagem de componentes para facilitar customização e reutilização. Além disso, seus componentes bem estruturados seguem padrões modernos, agilizando a implementação e mantendo o código organizado.
